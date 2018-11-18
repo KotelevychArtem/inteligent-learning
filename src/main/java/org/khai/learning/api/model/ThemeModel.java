@@ -1,20 +1,21 @@
 package org.khai.learning.api.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ThemeModel {
 
-    public ThemeModel(int id, String name, ArrayList<TestModel> testModels, ArrayList<EducationModel> educationModels) {
+    private int id;
+    private String name;
+    private List<TestModel> testModels;
+    private List<EducationModel> educationModels;
+
+    public ThemeModel(int id, String name, List<TestModel> testModels, List<EducationModel> educationModels) {
         this.id = id;
         this.name = name;
         this.testModels = testModels;
         this.educationModels = educationModels;
     }
-
-    private int id;
-    private String name;
-    private ArrayList<TestModel> testModels;
-    private ArrayList<EducationModel> educationModels;
 
     public int getId() {
         return id;
@@ -24,11 +25,11 @@ public class ThemeModel {
         return name;
     }
 
-    public ArrayList<TestModel> getTestModels() {
+    public List<TestModel> getTestModels() {
         return testModels;
     }
 
-    public ArrayList<EducationModel> getEducationModels() {
+    public List<EducationModel> getEducationModels() {
         return educationModels;
     }
 }

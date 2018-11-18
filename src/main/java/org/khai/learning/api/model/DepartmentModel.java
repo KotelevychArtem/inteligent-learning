@@ -1,18 +1,18 @@
 package org.khai.learning.api.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class DepartmentModel {
 
-    public DepartmentModel(int id, String name, ArrayList<SubjectModel> subjectModels) {
+    private int id;
+    private String name;
+    private List<SubjectModel> subjectModels;
+
+    public DepartmentModel(int id, String name, List<SubjectModel> subjectModels) {
         this.id = id;
         this.name = name;
         this.subjectModels = subjectModels;
     }
-
-    private int id;
-    private String name;
-    private ArrayList<SubjectModel> subjectModels;
 
     public int getId() {
         return id;
@@ -21,7 +21,8 @@ public class DepartmentModel {
     public String getName() {
         return name;
     }
-    public ArrayList<SubjectModel> getSubjectModels() {
+
+    public List<SubjectModel> getSubjectModels() {
         return subjectModels;
     }
 }

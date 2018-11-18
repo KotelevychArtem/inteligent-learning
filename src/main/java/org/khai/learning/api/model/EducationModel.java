@@ -1,20 +1,17 @@
 package org.khai.learning.api.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class EducationModel {
 
-    public EducationModel(ArrayList<String> tutorialImageUrls) {
+    private List<String> tutorialImageUrls;
+
+    public EducationModel(List<String> tutorialImageUrls) {
         this.tutorialImageUrls = tutorialImageUrls;
     }
 
-    private ArrayList<String> tutorialImageUrls;
-
-    public ArrayList<String> getTutorialImageUrls() {
+    public List<String> getTutorialImageUrls() {
         return tutorialImageUrls;
     }
-
-    //TODO Add functionality for smart education
-    //private SmartEducation smartEducation;
 
 }

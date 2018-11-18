@@ -1,18 +1,18 @@
 package org.khai.learning.api.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class TestModel {
 
-    public TestModel(int id, String name, ArrayList<QuestionModel> questionModels) {
+    private int id;
+    private String name;
+    private List<QuestionModel> questionModels;
+
+    public TestModel(int id, String name, List<QuestionModel> questionModels) {
         this.id = id;
         this.name = name;
         this.questionModels = questionModels;
     }
-
-    private int id;
-    private String name;
-    private ArrayList<QuestionModel> questionModels;
 
     public int getId() {
         return id;
@@ -22,7 +22,7 @@ public class TestModel {
         return name;
     }
 
-    public ArrayList<QuestionModel> getQuestionModels() {
+    public List<QuestionModel> getQuestionModels() {
         return questionModels;
     }
 }

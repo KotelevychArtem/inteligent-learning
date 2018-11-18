@@ -2,6 +2,13 @@ package org.khai.learning.api.model;
 
 public class QuestionModel {
 
+    private int id;
+    private int position;
+    private String name;
+    private String condition;
+    private String actualAnswer;
+    private String rightAnswer;
+
     public QuestionModel(int id, int position, String name, String condition, String rightAnswer) {
         this.id = id;
         this.position = position;
@@ -9,13 +16,6 @@ public class QuestionModel {
         this.condition = condition;
         this.rightAnswer = rightAnswer;
     }
-
-    private int id;
-    private int position;
-    private String name;
-    private String condition;
-    private String actualAnswer;
-    private String rightAnswer;
 
     public int getId() {
         return id;

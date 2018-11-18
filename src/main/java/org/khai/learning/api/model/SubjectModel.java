@@ -1,22 +1,23 @@
 package org.khai.learning.api.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SubjectModel {
 
-    public SubjectModel(int id, ArrayList<ThemeModel> themeModels) {
+    private int id;
+    private List<ThemeModel> themeModels;
+
+    public SubjectModel(int id, List<ThemeModel> themeModels) {
         this.id = id;
         this.themeModels = themeModels;
     }
-
-    private int id;
-    private ArrayList<ThemeModel> themeModels;
 
     public int getId() {
         return id;
     }
 
-    public ArrayList<ThemeModel> getThemeModels() {
+    public List<ThemeModel> getThemeModels() {
         return themeModels;
     }
 }
