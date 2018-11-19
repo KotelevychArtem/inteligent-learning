@@ -1,4 +1,4 @@
-package org.khai.learning.api.model;
+package org.khai.learning.service.model;
 
 import java.util.List;
 
