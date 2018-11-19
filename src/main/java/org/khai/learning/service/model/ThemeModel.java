@@ -7,16 +7,16 @@ public class ThemeModel {
     private int id;
     private String name;
     private List<TestModel> testModels;
-    private List<EducationModel> educationModels;
+    private List<LectureModel> lectureModels;
 
     public ThemeModel() {
     }
 
-    public ThemeModel(int id, String name, List<TestModel> testModels, List<EducationModel> educationModels) {
+    public ThemeModel(int id, String name, List<TestModel> testModels, List<LectureModel> lectureModels) {
         this.id = id;
         this.name = name;
         this.testModels = testModels;
-        this.educationModels = educationModels;
+        this.lectureModels = lectureModels;
     }
 
     public int getId() {
@@ -43,11 +43,11 @@ public class ThemeModel {
         this.testModels = testModels;
     }
 
-    public List<EducationModel> getEducationModels() {
-        return educationModels;
+    public List<LectureModel> getLectureModels() {
+        return lectureModels;
     }
 
-    public void setEducationModels(List<EducationModel> educationModels) {
-        this.educationModels = educationModels;
+    public void setLectureModels(List<LectureModel> lectureModels) {
+        this.lectureModels = lectureModels;
     }
 }

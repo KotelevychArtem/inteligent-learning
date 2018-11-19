@@ -26,40 +26,38 @@ public class BrowsingController {
     }
 
     @GetMapping("/departments")
-    public List<DepartmentModel> getDeparments() { return departmentModels; }
+    public List<DepartmentModel> getDeparments() {
+        return browsingService.getAllDepartmentsPreview();
+    }
 
     @GetMapping("/departments/{id}")
     public DepartmentModel getDepartmentDetails(@PathVariable int id) {
-        DepartmentModel resultDepartmentModel = null;
-        for(DepartmentModel departmentModel: departmentModels) { // TODO: use service
-            if (departmentModel.getId() == id)
-                resultDepartmentModel = departmentModel;
-        }
-        return resultDepartmentModel;
+        return browsingService.getDepartment(id);
     }
 
     @GetMapping("/subject/{id}")
     public SubjectModel getSubjectDetails(@PathVariable int id) {
-        //TODO Find subject by id
-        return new SubjectModel(1, "Subject 1", Collections.emptyList());
+        return browsingService.getSubject(id);
     }
 
     @GetMapping("/theme/{id}")
     public ThemeModel getThemeDetails(@PathVariable int id) {
-        //TODO Find theme by id
-        return new ThemeModel(1,"Theme name", Collections.emptyList(), Collections.emptyList());
+        return browsingService.getTheme(id);
     }
 
     @GetMapping("/test/{id}")
     public TestModel getTestDetails(@PathVariable int id) {
-        //TODO Find test by id
-        return new TestModel(1, "Test name", Collections.emptyList());
+        return browsingService.getTest(id);
     }
 
     @GetMapping("/question/{id}")
     public QuestionModel getQuestionDetails(@PathVariable int id) {
-        //TODO Find question by id
-        return new QuestionModel(1, 1, "Question name", "gaayy?","yes");
+        return browsingService.getQuestion(id);
+    }
+
+    @GetMapping("/lecture/{id}")
+    public LectureModel getLectureDetails(@PathVariable int id) {
+        return browsingService.getLecture(id);
     }
 
 }

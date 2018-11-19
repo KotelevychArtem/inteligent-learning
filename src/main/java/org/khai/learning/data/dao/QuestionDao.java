@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface QuestionDao extends GenericDao<QuestionDto> {
     List<QuestionDto> getQuestionsByTestId(int testId);
+    QuestionDto getQuestion(int id);
 }
