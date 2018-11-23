@@ -36,36 +36,36 @@ public class BrowsingService {
     }
 
     /**
-     * @return Department with id, name and subject list.
+     * @return Department with id, name and subject preview list.
      */
-    public DepartmentModel getDepartment(int id) {
+    public DepartmentModel getDepartmentPreview(int id) {
         List<SubjectModel> subjectModels = subjectDao.getSubjectsByDepartmentId(id).stream()
                 .map(Converters::convertSubjectPreview)
                 .collect(Collectors.toList());
-        return Converters.convertDepartment(departmentDao.getDepartment(id), subjectModels);
+        return Converters.convertDepartment(departmentDao.get(id), subjectModels);
     }
 
     /**
-     * @return Subject with id, name and theme list.
+     * @return Subject with id, name and theme preview list.
      */
-    public SubjectModel getSubject(int id) {
+    public SubjectModel getSubjectPreview(int id) {
         List<ThemeModel> themeModels = themeDao.getThemesBySubjectId(id).stream()
                 .map(Converters::convertThemePreview)
                 .collect(Collectors.toList());
-        return Converters.convertSubject(subjectDao.getSubject(id), themeModels);
+        return Converters.convertSubject(subjectDao.get(id), themeModels);
     }
 
     /**
-     * @return Theme with id, name, tests and lectures list.
+     * @return Theme with id, name, tests preview and lectures list.
      */
-    public ThemeModel getTheme(int id) {
+    public ThemeModel getThemePreview(int id) {
         List<TestModel> testModels = testDao.getTestByThemeId(id).stream()
                 .map(Converters::convertTestPreview)
                 .collect(Collectors.toList());
         List<LectureModel> lectureModels = lectureDao.getLecturesByThemeId(id).stream()
                 .map(Converters::convertLection)
                 .collect(Collectors.toList());
-        return Converters.convertTheme(themeDao.getTheme(id), lectureModels, testModels);
+        return Converters.convertTheme(themeDao.get(id), lectureModels, testModels);
     }
 
     /**
@@ -75,21 +75,21 @@ public class BrowsingService {
         List<QuestionModel> questionModels = questionDao.getQuestionsByTestId(id).stream()
                 .map(Converters::convertQuestion)
                 .collect(Collectors.toList());
-        return Converters.convertTest(testDao.getTest(id), questionModels);
+        return Converters.convertTest(testDao.get(id), questionModels);
     }
 
     /**
      * @return Question with id, position, name, condition and right answer.
      */
     public QuestionModel getQuestion(int id) {
-        return Converters.convertQuestion(questionDao.getQuestion(id));
+        return Converters.convertQuestion(questionDao.get(id));
     }
 
     /**
      * @return Lecture with id, name and image urls list.
      */
     public LectureModel getLecture(int id) {
-        return Converters.convertLection(lectureDao.getLecture(id));
+        return Converters.convertLection(lectureDao.get(id));
     }
 
 }

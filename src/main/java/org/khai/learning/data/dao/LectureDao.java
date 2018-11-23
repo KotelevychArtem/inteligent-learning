@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface LectureDao extends GenericDao<QuestionDto> {
         List<LectureDto> getLecturesByThemeId(int themeId);
-        LectureDto getLecture(int id);
 }
 

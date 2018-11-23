@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface DepartmentDao extends GenericDao<DepartmentDto> {
     List<DepartmentDto> getAllDepartments();
-    DepartmentDto getDepartment(int id);
 }

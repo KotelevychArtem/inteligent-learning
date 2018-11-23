@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface SubjectDao extends GenericDao<SubjectDto> {
     List<SubjectDto> getSubjectsByDepartmentId(int departmentId);
-    SubjectDto getSubject(int subjectId);
 }

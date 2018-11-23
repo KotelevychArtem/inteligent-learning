@@ -6,6 +6,4 @@ import java.util.List;
 
 public interface TestDao extends GenericDao<TestDto> {
     List<TestDto> getTestByThemeId(int themeId);
-    TestDto getTest(int id);
-
 }

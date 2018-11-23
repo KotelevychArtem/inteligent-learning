@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface ThemeDao extends GenericDao<ThemeDto> {
     List<ThemeDto> getThemesBySubjectId(int subjectId);
-    ThemeDto getTheme(int id);
 }
