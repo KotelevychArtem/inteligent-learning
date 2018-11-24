@@ -1,17 +1,13 @@
 package org.khai.learning.service.model;
 
-import java.util.List;
-
 public class LectureModel {
 
     private int id;
     private String name;
-    private List<String> tutorialImageUrls;
 
-    public LectureModel(int id, String name, List<String> tutorialImageUrls) {
+    public LectureModel(int id, String name) {
         this.id = id;
         this.name = name;
-        this.tutorialImageUrls = tutorialImageUrls;
     }
 
     public int getId() {
@@ -28,13 +24,5 @@ public class LectureModel {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setTutorialImageUrls(List<String> tutorialImageUrls) {
-        this.tutorialImageUrls = tutorialImageUrls;
-    }
-
-    public List<String> getTutorialImageUrls() {
-        return tutorialImageUrls;
     }
 }

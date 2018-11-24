@@ -1,28 +1,27 @@
 package org.khai.learning.data.model;
 
-import java.util.List;
+public class LectureDto extends AbstractDto {
 
-public class LectureDto {
-
-    private int id;
+    private int themeId;
     private String name;
-    private List<String> tutorialImageUrls;
+    private String content;
 
     public LectureDto() {
     }
 
-    public LectureDto(int id, String name, List<String> tutorialImageUrls) {
-        this.id = id;
+    public LectureDto(int id, int themeId, String name, String content) {
+        super(id);
+        this.themeId = themeId;
         this.name = name;
-        this.tutorialImageUrls = tutorialImageUrls;
+        this.content = content;
     }
 
-    public int getId() {
-        return id;
+    public int getThemeId() {
+        return themeId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setThemeId(int themeId) {
+        this.themeId = themeId;
     }
 
     public String getName() {
@@ -33,11 +32,11 @@ public class LectureDto {
         this.name = name;
     }
 
-    public void setTutorialImageUrls(List<String> tutorialImageUrls) {
-        this.tutorialImageUrls = tutorialImageUrls;
+    public String getContent() {
+        return content;
     }
 
-    public List<String> getTutorialImageUrls() {
-        return tutorialImageUrls;
+    public void setContent(String content) {
+        this.content = content;
     }
 }

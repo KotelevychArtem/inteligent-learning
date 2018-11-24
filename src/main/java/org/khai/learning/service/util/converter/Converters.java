@@ -3,7 +3,6 @@ package org.khai.learning.service.util.converter;
 import org.khai.learning.data.model.*;
 import org.khai.learning.service.model.*;
 
-import java.util.Collections;
 import java.util.List;
 
 public abstract class Converters {
@@ -13,7 +12,7 @@ public abstract class Converters {
         return new DepartmentModel(
                 departmentDto.getId(),
                 departmentDto.getName(),
-                Collections.emptyList());
+                null);
     }
 
     public static DepartmentModel convertDepartment(DepartmentDto departmentDto, List<SubjectModel> subjectModels) {
@@ -27,7 +26,7 @@ public abstract class Converters {
         return new SubjectModel(
                 subjectDto.getId(),
                 subjectDto.getName(),
-                Collections.emptyList());
+                null);
     }
 
     public static SubjectModel convertSubject(SubjectDto subjectDto, List<ThemeModel> themeModels) {
@@ -41,8 +40,8 @@ public abstract class Converters {
         return new ThemeModel(
                 themeDto.getId(),
                 themeDto.getName(),
-                Collections.emptyList(),
-                Collections.emptyList());
+                null,
+                null);
     }
 
     public static ThemeModel convertTheme(ThemeDto themeDto, List<LectureModel> lectureModels, List<TestModel> testModels) {
@@ -57,7 +56,7 @@ public abstract class Converters {
         return new TestModel(
                 testDto.getId(),
                 testDto.getName(),
-                Collections.emptyList());
+                null);
     }
 
     public static TestModel convertTest(TestDto testDto, List<QuestionModel> questionModels) {
@@ -79,7 +78,6 @@ public abstract class Converters {
     public static LectureModel convertLection(LectureDto lectureDto) {
         return new LectureModel(
                 lectureDto.getId(),
-                lectureDto.getName(),
-                lectureDto.getTutorialImageUrls());
+                lectureDto.getName());
     }
 }

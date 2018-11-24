@@ -1,8 +1,7 @@
 package org.khai.learning.data.model;
 
-public class QuestionDto {
+public class QuestionDto extends AbstractDto {
 
-    private int id;
     private int testId;
     private int position;
     private String name;
@@ -13,20 +12,12 @@ public class QuestionDto {
     }
 
     public QuestionDto(int id, int testId, int position, String name, String condition, String rightAnswer) {
-        this.id = id;
+        super(id);
         this.testId = testId;
         this.position = position;
         this.name = name;
         this.condition = condition;
         this.rightAnswer = rightAnswer;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getTestId() {
