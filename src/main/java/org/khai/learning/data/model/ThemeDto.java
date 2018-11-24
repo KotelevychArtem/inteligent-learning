@@ -1,8 +1,7 @@
 package org.khai.learning.data.model;
 
-public class ThemeDto {
+public class ThemeDto extends AbstractDto {
 
-    private int id;
     private int subjectId;
     private String name;
     private String description;
@@ -11,18 +10,10 @@ public class ThemeDto {
     }
 
     public ThemeDto(int id, int subjectId, String name, String description) {
-        this.id = id;
+        super(id);
         this.subjectId = subjectId;
         this.name = name;
         this.description = description;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getSubjectId() {

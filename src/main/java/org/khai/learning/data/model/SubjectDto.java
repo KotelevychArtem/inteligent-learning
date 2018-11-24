@@ -1,8 +1,7 @@
 package org.khai.learning.data.model;
 
-public class SubjectDto {
+public class SubjectDto extends AbstractDto {
 
-    private int id;
     private int departmentId;
     private String name;
 
@@ -10,17 +9,9 @@ public class SubjectDto {
     }
 
     public SubjectDto(int id, int departmentId, String name) {
-        this.id = id;
+        super(id);
         this.departmentId = departmentId;
         this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getDepartmentId() {

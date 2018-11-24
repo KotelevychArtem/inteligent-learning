@@ -1,24 +1,15 @@
 package org.khai.learning.data.model;
 
-public class DepartmentDto {
+public class DepartmentDto extends AbstractDto {
 
-    private int id;
     private String name;
 
     public DepartmentDto() {
     }
 
     public DepartmentDto(int id, String name) {
-        this.id = id;
+        super(id);
         this.name = name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

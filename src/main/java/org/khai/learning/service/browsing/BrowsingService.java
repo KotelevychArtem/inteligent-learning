@@ -3,11 +3,13 @@ package org.khai.learning.service.browsing;
 import org.khai.learning.data.dao.*;
 import org.khai.learning.service.model.*;
 import org.khai.learning.service.util.converter.Converters;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-//@Service // app won't start without actual daos
+@Service
 public class BrowsingService {
     private final DepartmentDao departmentDao;
     private final QuestionDao questionDao;
@@ -16,7 +18,7 @@ public class BrowsingService {
     private final ThemeDao themeDao;
     private final LectureDao lectureDao;
 
-//    @Autowired
+    @Autowired
     public BrowsingService(DepartmentDao departmentDao, QuestionDao questionDao, SubjectDao subjectDao, TestDao testDao, ThemeDao themeDao, LectureDao lectureDao) {
         this.departmentDao = departmentDao;
         this.questionDao = questionDao;

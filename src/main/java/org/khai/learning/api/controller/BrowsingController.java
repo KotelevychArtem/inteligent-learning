@@ -14,15 +14,9 @@ public class BrowsingController {
 
     private final BrowsingService browsingService;
 
-    private List<DepartmentModel> departmentModels;
-
     @Autowired
     BrowsingController(BrowsingService browsingService) {
         this.browsingService = browsingService;
-        departmentModels = Arrays.asList(new DepartmentModel(301, "301 Dich", new ArrayList<>()),
-                new DepartmentModel(302, "302 sss", new ArrayList<>()),
-                new DepartmentModel(303, "303 Gusi", new ArrayList<>()),
-                new DepartmentModel(304, "304 Shitshow", new ArrayList<>()));
     }
 
     @GetMapping("/departments")
@@ -32,17 +26,17 @@ public class BrowsingController {
 
     @GetMapping("/departments/{id}")
     public DepartmentModel getDepartmentDetails(@PathVariable int id) {
-        return browsingService.getDepartment(id);
+        return browsingService.getDepartmentPreview(id);
     }
 
     @GetMapping("/subject/{id}")
     public SubjectModel getSubjectDetails(@PathVariable int id) {
-        return browsingService.getSubject(id);
+        return browsingService.getSubjectPreview(id);
     }
 
     @GetMapping("/theme/{id}")
     public ThemeModel getThemeDetails(@PathVariable int id) {
-        return browsingService.getTheme(id);
+        return browsingService.getThemePreview(id);
     }
 
     @GetMapping("/test/{id}")
