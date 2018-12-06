@@ -51,14 +51,18 @@ public class Polynomial implements Expression<Polynomial> {
                 res[i] = koefs[i] * other.koefs[0];
             }
         } else {
-            res = new double[koefs.length + other.koefs.length - 2];
+            res = new double[koefs.length + other.koefs.length - 1];
             for (int i = 0; i < koefs.length; ++i) {
                 for (int j = 0; j < other.koefs.length; ++j) {
-                    res[i + j] = koefs[i] * other.koefs[j];
+                    res[i + j] += koefs[i] * other.koefs[j];
                 }
             }
         }
         return Polynomial.of(res);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Polynomial.of(6, 3.5).sub(Polynomial.of(3, 2)));
     }
 
     @Override
@@ -83,31 +87,31 @@ public class Polynomial implements Expression<Polynomial> {
         StringBuilder sb = new StringBuilder();
         if (koefs.length == 2) {
             if (koefs[1] != 0) {
-                sb.append(koefs[1])
+                sb.append(toXKoef(abs(koefs[1])))
                         .append("x");
             }
             if (koefs[0] != 0) {
-                sb.append(koefs[0] > 0 ? " + " : " - ")
+                sb.append(signOf(koefs[0]))
                         .append(koefs[0]);
             }
             return sb.length() > 0 ? sb.toString() : "0";
         }
         double k = koefs[koefs.length - 1];
         if (k < 0) sb.append("-");
-        sb.append(abs(k))
+        sb.append(toXKoef(abs(k)))
                 .append(k != 0 ? "x^" : "")
                 .append(koefs.length - 1);
         for (int i = koefs.length - 2; i > 1; --i) {
             k = koefs[i];
             if (k != 0) {
-                sb.append(k > 0 ? " + " : " - ")
-                        .append(abs(k))
+                sb.append(signOf(k))
+                        .append(toXKoef(abs(k)))
                         .append("x^")
                         .append(i);
             }
         }
         k = koefs[1];
-        sb.append(k > 0 ? " + " : " - ")
+        sb.append(signOf(k))
                 .append(abs(k))
                 .append("x");
         k = koefs[0];
@@ -116,6 +120,16 @@ public class Polynomial implements Expression<Polynomial> {
                     .append(abs(k));
         }
         return sb.toString();
+    }
+
+    private String toXKoef(double k) {
+        return k == 1 ? "" : String.valueOf(k);
+    }
+
+    private String signOf(double k) {
+        if (k > 0) return " + ";
+        if (k < 0) return " - ";
+        return "";
     }
 
 }
