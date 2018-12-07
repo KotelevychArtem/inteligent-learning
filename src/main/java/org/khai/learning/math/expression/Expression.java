@@ -1,9 +1,10 @@
 package org.khai.learning.math.expression;
 
-public interface Expression<T extends Expression> {
-    T add(T other);
-    T sub(T other);
-    T mul(T other);
-    T div(T other);
-    T neg();
+public interface Expression {
+    Expression add(Expression other);
+    Expression sub(Expression other);
+    Expression mul(Expression other);
+    Expression div(Expression other);
+    Expression neg();
+    Double eval(Double... args);
 }
