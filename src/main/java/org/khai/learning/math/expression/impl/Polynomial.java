@@ -30,6 +30,18 @@ public class Polynomial implements Expression {
         this.coefs = coefs;
     }
 
+    public double getCoef(int i) {
+        if (i >= coefs.length) {
+            return 0;
+        } else {
+            return coefs[i];
+        }
+    }
+
+    public int getRank() {
+        return coefs.length - 1;
+    }
+
     @Override
     public Expression add(Expression other) {
         if (other instanceof Fraction) {
@@ -90,7 +102,18 @@ public class Polynomial implements Expression {
     }
 
     @Override
-    public Fraction div(Expression other) {
+    public Expression div(Expression other) {
+        if (other instanceof Polynomial) {
+            Polynomial otherPol = (Polynomial) other;
+            if (otherPol.coefs.length == 1) {
+                double[] res = new double[coefs.length];
+                double a = otherPol.coefs[0];
+                for (int i = 0; i < coefs.length; ++i) {
+                    res[i] = coefs[i] / a;
+                }
+                return Polynomial.of(res);
+            }
+        }
         return Fraction.of(this, other);
     }
 
