@@ -1,4 +1,4 @@
-package org.khai.learning.math.expression;
+package org.khai.learning.engine.math.expression;
 
 public interface Expression {
     Expression add(Expression other);

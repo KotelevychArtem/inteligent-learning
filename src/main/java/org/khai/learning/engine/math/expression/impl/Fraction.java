@@ -1,6 +1,6 @@
-package org.khai.learning.math.expression.impl;
+package org.khai.learning.engine.math.expression.impl;
 
-import org.khai.learning.math.expression.Expression;
+import org.khai.learning.engine.math.expression.Expression;
 
 import java.util.Objects;
 
@@ -19,6 +19,14 @@ public class Fraction implements Expression {
     private Fraction(Expression num, Expression denom) {
         this.num = num;
         this.denom = denom;
+    }
+
+    public Expression getNum() {
+        return num;
+    }
+
+    public Expression getDenom() {
+        return denom;
     }
 
     @Override
@@ -41,7 +49,7 @@ public class Fraction implements Expression {
     }
 
     @Override
-    public Fraction mul(Expression other) {
+    public Expression mul(Expression other) {
         if (other instanceof Polynomial) {
             return mul(Fraction.of(other));
         }
@@ -53,13 +61,17 @@ public class Fraction implements Expression {
     }
 
     @Override
-    public Fraction div(Expression other) {
+    public Expression div(Expression other) {
         if (other instanceof Polynomial) {
-            return Fraction.of(this, other);
+            return Fraction.of(this.num.div(other), this.denom);
         }
         if (other instanceof Fraction) {
             Fraction otherFraction = (Fraction) other;
-            return Fraction.of(num.mul(otherFraction.denom), denom.mul(otherFraction.num));
+            if (denom.equals(otherFraction.denom)) {
+                return Fraction.of(num, otherFraction.num);
+            } else {
+                return Fraction.of(num.mul(otherFraction.denom), denom.mul(otherFraction.num));
+            }
         }
         throw new UnsupportedOperationException();
     }
