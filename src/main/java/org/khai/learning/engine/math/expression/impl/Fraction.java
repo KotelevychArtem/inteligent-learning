@@ -1,6 +1,6 @@
-package org.khai.learning.math.expression.impl;
+package org.khai.learning.engine.math.expression.impl;
 
-import org.khai.learning.math.expression.Expression;
+import org.khai.learning.engine.math.expression.Expression;
 
 import java.util.Objects;
 

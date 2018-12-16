@@ -1,4 +1,4 @@
-package org.khai.learning.engine;
+package org.khai.learning.engine.problem;
 
 public abstract class Constants {
     private Constants() {

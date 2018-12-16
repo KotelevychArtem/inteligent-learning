@@ -1,4 +1,4 @@
-package org.khai.learning.math.solver;
+package org.khai.learning.engine.math.solver;
 
 public class GaussSystemSolver {
     private final double[][] system;

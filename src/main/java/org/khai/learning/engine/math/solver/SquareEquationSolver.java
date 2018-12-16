@@ -1,6 +1,6 @@
-package org.khai.learning.math.solver;
+package org.khai.learning.engine.math.solver;
 
-import org.khai.learning.math.expression.impl.Polynomial;
+import org.khai.learning.engine.math.expression.impl.Polynomial;
 
 public class SquareEquationSolver {
     private final Polynomial equation;

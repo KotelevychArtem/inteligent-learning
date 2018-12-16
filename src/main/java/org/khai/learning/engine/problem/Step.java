@@ -1,8 +1,7 @@
-package org.khai.learning.engine;
+package org.khai.learning.engine.problem;
 
 
 public interface Step<T> {
-    int getHint(int pos);
     boolean checkAnswer(T answer);
     T getAnswer();
 }
