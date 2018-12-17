@@ -5,6 +5,7 @@ import org.khai.learning.service.model.ThemeListModel;
 import org.khai.learning.service.model.ThemeModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,6 +23,11 @@ public class BrowsingController {
     @GetMapping("/theme")
     public ThemeListModel getThemeList() {
         return new ThemeListModel(browsingService.getThemeList());
+    }
+
+    @GetMapping("/theme/{themeId}/lecture")
+    public ThemeModel getLecture(@PathVariable int themeId) {
+        return browsingService.getLecture(themeId);
     }
 
 }

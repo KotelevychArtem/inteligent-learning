@@ -88,8 +88,8 @@ public class DataLoader implements CommandLineRunner {
         LOGGER.info("New theme added: id = {}, name = '{}'", themeDto.getId(), themeDto.getName());
         loadImages();
         loadSteps(LECTURE_FILE, themeDto.getId(), lectureStepDao);
-        loadSteps(GUIDE_FILE, themeDto.getId(), guideStepDao);
-        loadSteps(TEST_FILE, themeDto.getId(), testStepDao);
+//        loadSteps(GUIDE_FILE, themeDto.getId(), guideStepDao);
+//        loadSteps(TEST_FILE, themeDto.getId(), testStepDao);
 
         System.exit(0);
     }

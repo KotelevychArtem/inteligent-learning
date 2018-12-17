@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 public abstract class AbstractDao<T> implements GenericDao<T> {
     protected static final String ID_COLUMN = "id";
@@ -47,6 +48,11 @@ public abstract class AbstractDao<T> implements GenericDao<T> {
     protected Integer doUpdate(PreparedStatementCreator psc) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(psc, keyHolder);
-        return (Integer) keyHolder.getKeys().get(ID_COLUMN);
+        Map<String, Object> keys = keyHolder.getKeys();
+        Integer id = null;
+        if (keys != null) {
+            id = (Integer) keys.get(ID_COLUMN);
+        }
+        return id;
     }
 }

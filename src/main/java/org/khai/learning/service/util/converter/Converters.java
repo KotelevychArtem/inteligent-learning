@@ -1,5 +1,6 @@
 package org.khai.learning.service.util.converter;
 
+import org.khai.learning.data.model.StepDto;
 import org.khai.learning.data.model.ThemeDto;
 import org.khai.learning.service.model.StepModel;
 import org.khai.learning.service.model.ThemeModel;
@@ -15,6 +16,14 @@ public abstract class Converters {
                 themeDto.getCode(),
                 themeDto.getName(),
                 themeDto.getDescription());
+    }
+
+    public static StepModel convertStep(StepDto stepDto) {
+        return new StepModel(
+                stepDto.getThemeId(),
+                stepDto.getStep(),
+                stepDto.getContent());
+
     }
 
 }
