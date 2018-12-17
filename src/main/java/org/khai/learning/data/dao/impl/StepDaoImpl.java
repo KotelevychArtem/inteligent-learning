@@ -2,8 +2,10 @@ package org.khai.learning.data.dao.impl;
 
 import org.khai.learning.data.dao.StepDao;
 import org.khai.learning.data.model.StepDto;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -41,6 +43,11 @@ public class StepDaoImpl implements StepDao {
     }
 
     @Override
+    public void batchInsertOrUpdate(List<StepDto> stepDtos) {
+        jdbcTemplate.batchUpdate(upsertQuery, new BatchSetter(stepDtos));
+    }
+
+    @Override
     public List<StepDto> getSteps(int themeId) {
         return jdbcTemplate.query(selectByThemeIdQuery, this::mapRow, themeId);
     }
@@ -56,5 +63,26 @@ public class StepDaoImpl implements StepDao {
         step.setStep(rs.getInt(STEP_COLUMN));
         step.setContent(rs.getString(CONTENT_COLUMN));
         return step;
+    }
+
+    private static class BatchSetter implements BatchPreparedStatementSetter {
+        private final List<StepDto> steps;
+
+        public BatchSetter(List<StepDto> steps) {
+            this.steps = steps;
+        }
+
+        @Override
+        public void setValues(PreparedStatement ps, int i) throws SQLException {
+            StepDto step = steps.get(i);
+            ps.setInt(1, step.getThemeId());
+            ps.setInt(2, step.getStep());
+            ps.setString(3, step.getContent());
+        }
+
+        @Override
+        public int getBatchSize() {
+            return steps.size();
+        }
     }
 }

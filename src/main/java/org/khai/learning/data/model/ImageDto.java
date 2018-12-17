@@ -1,6 +1,6 @@
 package org.khai.learning.data.model;
 
-public class ImageDto extends StepDto {
+public class ImageDto {
     private Integer id;
     private String title;
     private byte[] bytes;
