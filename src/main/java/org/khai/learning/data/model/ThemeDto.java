@@ -1,27 +1,28 @@
 package org.khai.learning.data.model;
 
-public class ThemeDto extends AbstractDto {
-
-    private int subjectId;
+public class ThemeDto {
+    private int id;
+    private String code;
     private String name;
     private String description;
 
     public ThemeDto() {
     }
 
-    public ThemeDto(int id, int subjectId, String name, String description) {
-        super(id);
-        this.subjectId = subjectId;
-        this.name = name;
-        this.description = description;
+    public int getId() {
+        return id;
     }
 
-    public int getSubjectId() {
-        return subjectId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setSubjectId(int subjectId) {
-        this.subjectId = subjectId;
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getName() {

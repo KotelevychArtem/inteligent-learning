@@ -5,18 +5,18 @@ import java.util.List;
 public class ThemeModel {
 
     private int id;
+    private String code;
     private String name;
-    private List<TestModel> testModels;
-    private List<LectureModel> lectureModels;
+    private String description;
 
     public ThemeModel() {
     }
 
-    public ThemeModel(int id, String name, List<TestModel> testModels, List<LectureModel> lectureModels) {
+    public ThemeModel(int id, String code, String name, String description) {
         this.id = id;
+        this.code = code;
         this.name = name;
-        this.testModels = testModels;
-        this.lectureModels = lectureModels;
+        this.description = description;
     }
 
     public int getId() {
@@ -27,6 +27,14 @@ public class ThemeModel {
         this.id = id;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public String getName() {
         return name;
     }
@@ -35,19 +43,11 @@ public class ThemeModel {
         this.name = name;
     }
 
-    public List<TestModel> getTestModels() {
-        return testModels;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTestModels(List<TestModel> testModels) {
-        this.testModels = testModels;
-    }
-
-    public List<LectureModel> getLectureModels() {
-        return lectureModels;
-    }
-
-    public void setLectureModels(List<LectureModel> lectureModels) {
-        this.lectureModels = lectureModels;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

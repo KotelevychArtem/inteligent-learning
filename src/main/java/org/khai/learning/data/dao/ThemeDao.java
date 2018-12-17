@@ -5,5 +5,5 @@ import org.khai.learning.data.model.ThemeDto;
 import java.util.List;
 
 public interface ThemeDao extends GenericDao<ThemeDto> {
-    List<ThemeDto> getThemesBySubjectId(int subjectId);
+    List<ThemeDto> getAllThemes();
 }

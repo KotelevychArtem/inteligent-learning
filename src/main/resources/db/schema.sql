@@ -1,62 +1,50 @@
-DROP TABLE IF EXISTS department;
-
-DROP INDEX IF EXISTS i_subject;
-DROP TABLE IF EXISTS subject;
-
-DROP INDEX IF EXISTS i_theme;
+DROP TABLE IF EXISTS image;
 DROP TABLE IF EXISTS theme;
-
-DROP INDEX IF EXISTS i_test;
+DROP TABLE IF EXISTS lecture;
+DROP TABLE IF EXISTS guide;
+DROP TABLE IF EXISTS hint;
 DROP TABLE IF EXISTS test;
 
-DROP INDEX IF EXISTS i_question;
-DROP TABLE IF EXISTS question;
-
-DROP INDEX IF EXISTS i_lecture;
-DROP TABLE IF EXISTS lecture;
-
-
-CREATE TABLE department (
+CREATE TABLE image (
 	id serial PRIMARY KEY,
-	name VARCHAR (255)
+	title VARCHAR (32) NOT NULL,
+	hash INTEGER NOT NULL,
+	bytes bytea NOT NULL,
+	UNIQUE (hash, title)
 );
-
-CREATE TABLE subject (
-    id serial PRIMARY KEY,
-    departmentId INTEGER NOT NULL,
-    name VARCHAR (255)
-);
-CREATE INDEX i_subject ON subject (departmentId);
+CREATE INDEX i_image ON image (hash);
 
 CREATE TABLE theme (
 	id serial PRIMARY KEY,
-	subjectId INTEGER NOT NULL,
+	code VARCHAR (255) NOT NULL,
 	name VARCHAR (255),
 	description VARCHAR (255)
 );
-CREATE INDEX i_theme ON theme (subjectId);
-
-CREATE TABLE test (
-	id serial PRIMARY KEY,
-	themeId INTEGER NOT NULL,
-	name VARCHAR (255)
-);
-CREATE INDEX i_test ON test (themeId);
-
-CREATE TABLE question (
-	id serial PRIMARY KEY,
-	testId INTEGER NOT NULL,
-	position INTEGER NOT NULL,
-	name VARCHAR (255) NOT NULL,
-	condition TEXT NOT NULL,
-	rightAnswer TEXT NOT NULL
-);
-CREATE INDEX i_question ON question (testId);
 
 CREATE TABLE lecture (
-    id serial PRIMARY KEY,
     themeId INTEGER NOT NULL,
-    name VARCHAR (255) NOT NULL,
-    content TEXT
+    step INTEGER NOT NULL,
+    content TEXT,
+    PRIMARY KEY (themeId, step)
 );
-CREATE INDEX i_lecture ON test (themeId);
+
+CREATE TABLE guide (
+    themeId INTEGER NOT NULL,
+    step INTEGER NOT NULL,
+    content TEXT,
+    PRIMARY KEY (themeId, step)
+);
+
+CREATE TABLE hint (
+    themeId INTEGER NOT NULL,
+    guideStep INTEGER NOT NULL,
+    content TEXT,
+    PRIMARY KEY (themeId, guideStep)
+);
+
+CREATE TABLE test (
+    themeId INTEGER NOT NULL,
+    step INTEGER NOT NULL,
+    content TEXT,
+    PRIMARY KEY (themeId, step)
+);

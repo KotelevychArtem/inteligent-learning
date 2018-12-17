@@ -1,9 +1,7 @@
 package org.khai.learning.data.dao;
 
-import org.khai.learning.data.model.AbstractDto;
-
-public interface GenericDao<T extends AbstractDto> {
-    int add(T entry);
+public interface GenericDao<T> {
+    Integer insert(T entry);
 
     T get(int id);
 
