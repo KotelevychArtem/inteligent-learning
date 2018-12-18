@@ -7,6 +7,7 @@ public class TransitionalContext {
     private double wpe, wpp, kdu, kdw, t1, t2, wtg, wke, uz, mn;
     private Expression fZd, fZb;
     private Polynomial charEquation;
+    private double charRoot1, charRoot2;
     private double tz1, tz2;
     private LaplasContext laplasZd, laplasZb;
     private double[] T;
@@ -89,6 +90,24 @@ public class TransitionalContext {
 
     public TransitionalContext setWke(double wke) {
         this.wke = wke;
+        return this;
+    }
+
+    public double getCharRoot1() {
+        return charRoot1;
+    }
+
+    public TransitionalContext setCharRoot1(double charRoot1) {
+        this.charRoot1 = charRoot1;
+        return this;
+    }
+
+    public double getCharRoot2() {
+        return charRoot2;
+    }
+
+    public TransitionalContext setCharRoot2(double charRoot2) {
+        this.charRoot2 = charRoot2;
         return this;
     }
 

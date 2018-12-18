@@ -56,14 +56,15 @@ public class PlotStep implements Step<TransitionalContext> {
         double prev = Double.NaN;
         int stableCounter = 0;
         for (double t = 0; t < T_MAX; t += T_DELTA) {
-            double val = MathUtils.round4(evalFunction(l, t));
-            x.add(t);
+            double val = evalFunction(l, t);
+            x.add(MathUtils.round4(t));
             y.add(val);
-            if (val == prev) {
+            double roundY = MathUtils.round4(val);
+            if (roundY == prev) {
                 ++stableCounter;
             } else {
                 stableCounter = 0;
-                prev = val;
+                prev = roundY;
             }
             if (stableCounter >= STABLE_VALUE_THRESHOLD) {
                 break;

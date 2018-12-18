@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 @SpringBootApplication
-@ComponentScan({"org.khai.learning.data*"})
+@ComponentScan({"org.khai.learning.data.*"})
 public class DataLoader implements CommandLineRunner {
     private static final Logger LOGGER = LoggerFactory.getLogger(DataLoader.class);
 
@@ -84,10 +84,10 @@ public class DataLoader implements CommandLineRunner {
         }
         files = baseDir.listFiles();
 
-        ThemeDto themeDto = loadTheme();
-        LOGGER.info("New theme added: id = {}, name = '{}'", themeDto.getId(), themeDto.getName());
+//        ThemeDto themeDto = loadTheme();
+//        LOGGER.info("New theme added: id = {}, name = '{}'", themeDto.getId(), themeDto.getName());
         loadImages();
-        loadSteps(LECTURE_FILE, themeDto.getId(), lectureStepDao);
+//        loadSteps(LECTURE_FILE, themeDto.getId(), lectureStepDao);
 //        loadSteps(GUIDE_FILE, themeDto.getId(), guideStepDao);
 //        loadSteps(TEST_FILE, themeDto.getId(), testStepDao);
 

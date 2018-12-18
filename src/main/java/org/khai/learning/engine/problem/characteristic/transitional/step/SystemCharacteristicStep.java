@@ -54,7 +54,7 @@ public class SystemCharacteristicStep implements Step<TransitionalContext> {
                 indMax = i;
             }
             if (stableT == 0 && Math.abs(f[i] - stableVal) >= delta) {
-                stableT = MathUtils.round4(context.getT()[i]);
+                stableT = context.getT()[i];
             }
         }
 

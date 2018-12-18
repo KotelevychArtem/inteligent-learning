@@ -28,7 +28,9 @@ public class CharacteristicEquationStep implements Step<TransitionalContext> {
 
     private void solve() {
         roots = new SquareEquationSolver(context.getCharEquation()).solve();
-        context.setTz1(MathUtils.round4(-1.0 / roots[0]));
-        context.setTz2(MathUtils.round4(-1.0 / roots[1]));
+        context.setCharRoot1(roots[0]);
+        context.setCharRoot2(roots[1]);
+        context.setTz1(-1.0 / roots[0]);
+        context.setTz2(-1.0 / roots[1]);
     }
 }
