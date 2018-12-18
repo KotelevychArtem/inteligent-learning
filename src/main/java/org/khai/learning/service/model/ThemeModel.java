@@ -8,6 +8,8 @@ public class ThemeModel {
     private String code;
     private String name;
     private String description;
+    private List<StepModel> steps;
+    private Object data;
 
     public ThemeModel() {
     }
@@ -49,5 +51,21 @@ public class ThemeModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setSteps(List<StepModel> steps) {
+        this.steps = steps;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    public List<StepModel> getSteps() {
+        return steps;
     }
 }

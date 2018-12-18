@@ -1,0 +1,14 @@
+#step 1
+Структурная схема САС
+<img src="127.0.0.1/api/image/sasSchema" alt="САС схема"/>
+<span>- перетворювальний елемента </span><img src="127.0.0.1/api/image/wpe" alt="Wpe"/>=<span>3.2;</span>
+<span>- підсилювач потужності </span><img src="127.0.0.1/api/image/wpp" alt="Wpp"/>=<span>2.6;</span>
+<span>- електродвигун </span>
+<img src="{{imagesUrl}}/wdu" alt="Wdu"/>
+<img src="{{imagesUrl}}/wdm" alt="Wdm"/>
+<img src="{{imagesUrl}}/t1" alt="t1"/>=<span>0.15</span>
+<img src="{{imagesUrl}}/t2" alt="t2"/>=<span>0.003</span>
+<img src="{{imagesUrl}}/kdu" alt="kdu"/>=<span>10.5</span>
+<img src="{{imagesUrl}}/kdw" alt="kdw"/>=<span>8.2e-3</span>
+
+
